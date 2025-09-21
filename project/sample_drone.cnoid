@@ -65,6 +65,18 @@ items:
                 base_directory: "Controller directory"
                 reloading: false
                 export_symbols: false
+            -
+              id: 12
+              name: "ResetZeroVelController"
+              plugin: Body
+              class: SimpleControllerItem
+              data:
+                isNoDelayMode: false
+                controllerOptions: ""
+                controller: "ResetZeroVelocityController"
+                base_directory: "Controller directory"
+                reloading: false
+                export_symbols: false
         -
           id: 5
           name: "Floor"
