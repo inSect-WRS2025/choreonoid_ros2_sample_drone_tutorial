@@ -21,3 +21,9 @@ choreonoid_add_simple_controller(
 
 ament_target_dependencies(
     ResetZeroVelocityController rclcpp std_msgs)
+
+choreonoid_add_simple_controller(
+    MothcopePanTiltController MothcopePanTiltController.cpp)
+
+ament_target_dependencies(
+    MothcopePanTiltController rclcpp geometry_msgs)
