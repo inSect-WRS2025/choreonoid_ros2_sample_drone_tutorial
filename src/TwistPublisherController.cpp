@@ -7,7 +7,6 @@
 #include <cnoid/SimpleController>
 #include <rclcpp/rclcpp.hpp>
 #include <geometry_msgs/msg/twist.hpp>
-#include <geometry_msgs/msg/vector3.hpp>
 #include <memory>
 #include <thread>
 #include <mutex>
@@ -27,7 +26,7 @@ private:
 
     rclcpp::Node::SharedPtr node;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr twist_pub;
-    rclcpp::Publisher<geometry_msgs::msg::Vector3>::SharedPtr angler_pub;
+    rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr angular_pub;
     rclcpp::executors::StaticSingleThreadedExecutor::UniquePtr executor;
     std::thread executorThread;
     std::mutex commandMutex;
@@ -42,7 +41,7 @@ bool TwistPublisherController::configure(cnoid::SimpleControllerConfig* config)
     node = std::make_shared<rclcpp::Node>(config->controllerName());
 
     twist_pub  = node->create_publisher<geometry_msgs::msg::Twist>("/cmd_vel", 10);
-    angler_pub = node->create_publisher<geometry_msgs::msg::Vector3>("/angler", 10);
+    angular_pub = node->create_publisher<geometry_msgs::msg::Twist>("/angler", 10);
 
     executor = std::make_unique<rclcpp::executors::StaticSingleThreadedExecutor>();
     executor->add_node(node);
@@ -93,11 +92,11 @@ bool TwistPublisherController::control()
 
         } else if(currentMode == PanTiltMode) {
             // PanTilt 制御用 /angler
-            auto msg = geometry_msgs::msg::Vector3();
-            msg.x = pos[0]; // 左スティック左右 → Pan
-            msg.y = pos[1]; // 左スティック上下 → Tilt
-            msg.z = 0.0;
-            angler_pub->publish(msg);
+            auto msg = geometry_msgs::msg::Twist();
+            msg.angular.x = joystick.getPosition(6);
+            msg.angular.y = joystick.getPosition(7);
+            msg.angular.z = 0.0;
+            angular_pub->publish(msg);
         }
     }
 
