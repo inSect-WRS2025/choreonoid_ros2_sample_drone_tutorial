@@ -14,7 +14,7 @@ public:
     virtual void unconfigure() override;
 
 private:
-    cnoid::Link* joints[2];
+    cnoid::Link* joints[2]; // [0]=Pan, [1]=Tilt
     rclcpp::Node::SharedPtr node;
     rclcpp::Subscription<geometry_msgs::msg::Vector3>::SharedPtr subscription;
     geometry_msgs::msg::Vector3 command;
@@ -29,8 +29,9 @@ bool MobileRobotPanTiltController::configure(cnoid::SimpleControllerConfig* conf
 {
     node = std::make_shared<rclcpp::Node>(config->controllerName());
 
+    // /angler を購読
     subscription = node->create_subscription<geometry_msgs::msg::Vector3>(
-        "/cmd_joint_vel", 1,
+        "/angler", 1,
         [this](const geometry_msgs::msg::Vector3::SharedPtr msg){
             std::lock_guard<std::mutex> lock(commandMutex);
             command = *msg;
@@ -43,12 +44,12 @@ bool MobileRobotPanTiltController::configure(cnoid::SimpleControllerConfig* conf
     return true;
 }
 
-
 bool MobileRobotPanTiltController::initialize(cnoid::SimpleControllerIO* io)
 {
     auto body = io->body();
     joints[0] = body->joint("PanJoint");
     joints[1] = body->joint("TiltJoint");
+
     for(int i = 0; i < 2; ++i){
         cnoid::Link* joint = joints[i];
         joint->setActuationMode(JointTorque);
@@ -58,7 +59,6 @@ bool MobileRobotPanTiltController::initialize(cnoid::SimpleControllerIO* io)
     return true;
 }
 
-
 bool MobileRobotPanTiltController::control()
 {
     constexpr double kd = 0.1;
@@ -66,11 +66,11 @@ bool MobileRobotPanTiltController::control()
 
     {
         std::lock_guard<std::mutex> lock(commandMutex);
-        dq_target[0] = command.z;
-        dq_target[1] = command.y;
+        dq_target[0] = command.x; // Pan ← angler.x
+        dq_target[1] = command.y; // Tilt ← angler.y
     }
     
-    for(int i=0; i < 2; ++i){
+    for(int i = 0; i < 2; ++i){
         cnoid::Link* joint = joints[i];
         joint->u() = kd * (dq_target[i] - joint->dq());
     }
