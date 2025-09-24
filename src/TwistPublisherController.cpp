@@ -93,8 +93,8 @@ bool TwistPublisherController::control()
         } else if(currentMode == PanTiltMode) {
             // PanTilt 制御用 /angler
             auto msg = geometry_msgs::msg::Twist();
-            msg.angular.x = joystick.getPosition(6);
-            msg.angular.y = joystick.getPosition(7);
+            msg.angular.x = joystick.getPosition(0);
+            msg.angular.y = joystick.getPosition(1);
             msg.angular.z = 0.0;
             angular_pub->publish(msg);
         }
