@@ -39,3 +39,15 @@ choreonoid_add_simple_controller(
     
 ament_target_dependencies(
     Jaco2Controller rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    MobileRobotFlipperController MobileRobotFlipperController.cpp)
+    
+ament_target_dependencies(
+    MobileRobotFlipperController rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    MobileRobotTrackController MobileRobotTrackController.cpp)
+    
+ament_target_dependencies(
+    MobileRobotTrackController rclcpp sensor_msgs)

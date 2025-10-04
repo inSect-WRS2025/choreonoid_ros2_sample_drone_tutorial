@@ -43,6 +43,10 @@ set_target_properties(choreonoid_joy_node PROPERTIES OUTPUT_NAME node PREFIX "")
 target_link_libraries(choreonoid_joy_node Choreonoid::CnoidUtil)
 ament_target_dependencies(choreonoid_joy_node rclcpp sensor_msgs choreonoid)
 
+add_executable(joy_multiplexer src/joy_multiplexer.cpp)
+ament_target_dependencies(joy_multiplexer rclcpp sensor_msgs geometry_msgs)
+install(TARGETS joy_multiplexer DESTINATION lib/${PROJECT_NAME})
+
 
 ament_package()
 
