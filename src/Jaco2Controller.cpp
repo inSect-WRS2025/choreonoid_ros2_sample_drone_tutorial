@@ -125,10 +125,15 @@ bool Jaco2Controller::initialize(SimpleControllerIO* io)
         return false;
     }
 
-    // initialize の最後を修正する
     joystick = io->getOrCreateSharedObject<SharedJoystick>("joystick");
-    // activeMode() ではなく addMode() を使う
-    targetMode = joystick->addMode();
+    if(prefix == "ARM1_"){
+        targetMode = 1;
+    } else if (prefix == "ARM2_"){
+        targetMode = 2;
+    } else {
+        io->os() << "Error: Unknown Jaco2Controller prefix '" << prefix << "'" << endl;
+        return false;
+    }
 
     return true;
 }
@@ -162,7 +167,7 @@ bool Jaco2Controller::initializeJoints(SimpleControllerIO* io, vector<JointSpec>
 
 bool Jaco2Controller::control()
 {
-    joystick->updateState(targetMode);
+    //joystick->updateState(targetMode);
     updateTargetJointAngles();
 
     switch(mainActuationMode){
