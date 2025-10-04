@@ -27,3 +27,15 @@ choreonoid_add_simple_controller(
 
 ament_target_dependencies(
     MothcopePanTiltController rclcpp geometry_msgs)
+    
+choreonoid_add_simple_controller(
+    AizuSpiderController AizuSpiderController.cpp)
+    
+ament_target_dependencies(
+    AizuSpiderController rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    Jaco2Controller Jaco2Controller.cpp)
+    
+ament_target_dependencies(
+    Jaco2Controller rclcpp sensor_msgs)
