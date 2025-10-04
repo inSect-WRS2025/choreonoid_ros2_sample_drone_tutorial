@@ -1,0 +1,143 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-10923146b2248684787b.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						5,
+						6,
+						7
+					]
+				},
+				{
+					"build" : "src",
+					"jsonFile" : "directory-src-b6cf2213fc5053b67c22.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "choreonoid_ros2_sample_drone_tutorial",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "JoyTopicSubscriberController::@145eef247bfb46b6828c",
+					"jsonFile" : "target-JoyTopicSubscriberController-0c702e724c465cf4145c.json",
+					"name" : "JoyTopicSubscriberController",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "MothcopePanTiltController::@145eef247bfb46b6828c",
+					"jsonFile" : "target-MothcopePanTiltController-ec4d770a37bb98025288.json",
+					"name" : "MothcopePanTiltController",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ResetZeroVelocityController::@145eef247bfb46b6828c",
+					"jsonFile" : "target-ResetZeroVelocityController-f1ff907cadeda406328c.json",
+					"name" : "ResetZeroVelocityController",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "SampleDroneFlightController::@145eef247bfb46b6828c",
+					"jsonFile" : "target-SampleDroneFlightController-455e534530cf6b9ac9e0.json",
+					"name" : "SampleDroneFlightController",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "TwistPublisherController::@145eef247bfb46b6828c",
+					"jsonFile" : "target-TwistPublisherController-0f31497c2786840a4fae.json",
+					"name" : "TwistPublisherController",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "choreonoid_joy_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-choreonoid_joy_node-ed2918cb17c0175d768b.json",
+					"name" : "choreonoid_joy_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "choreonoid_ros2_sample_drone_tutorial_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-choreonoid_ros2_sample_drone_tutorial_uninstall-c414f98ab419b0f585b3.json",
+					"name" : "choreonoid_ros2_sample_drone_tutorial_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-7b5f812f4262dcbc5cd7.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial",
+		"source" : "/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

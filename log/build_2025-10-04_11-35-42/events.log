@@ -1,0 +1,262 @@
+[0.000000] (-) TimerEvent: {}
+[0.000086] (choreonoid_ros2_sample_drone_tutorial) JobQueued: {'identifier': 'choreonoid_ros2_sample_drone_tutorial', 'dependencies': OrderedDict()}
+[0.000524] (choreonoid_ros2_sample_drone_tutorial) JobStarted: {'identifier': 'choreonoid_ros2_sample_drone_tutorial'}
+[0.006476] (choreonoid_ros2_sample_drone_tutorial) JobProgress: {'identifier': 'choreonoid_ros2_sample_drone_tutorial', 'progress': 'cmake'}
+[0.006804] (choreonoid_ros2_sample_drone_tutorial) Command: {'cmd': ['/usr/bin/cmake', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial'], 'cwd': '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'areno'), ('AGX_COLLADA_DEFAULT_LIB_NAME', 'collada14dom'), ('AGX_STATISTICS_ENABLE', '0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/Algoryx/AGX-2.38.0.2/lib:/opt/Algoryx/AGX-2.38.02/lib:'), ('HOME', '/home/areno'), ('OLDPWD', '/home/areno/inSectWRS2025/wrs_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('AGX_EXTENDED_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/data/python/modules'), ('ROS_PYTHON_VERSION', '3'), ('AGX_DATA_DIR', '/opt/Algoryx/AGX-2.38.0.2/data'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3700'), ('UNZIP', '-O CP932'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('AGX_LOG_OVERWRITE', '0'), ('AGX_DEPENDENCIES_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('OSG_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install:/home/areno/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'areno'), ('AGX_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/cfg:/opt/Algoryx/AGX-2.38.0.2/data/python:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:/opt/Algoryx/AGX-2.38.0.2/data/OpenCL:/opt/Algoryx/AGX-2.38.0.2/data/scenes:/opt/Algoryx/AGX-2.38.0.2/data/sceneDemos'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'areno'), ('TERM', 'xterm-256color'), ('AGX_LOG_FILE', 'agx.log'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/bin:/opt/ros/humble/bin:/home/areno/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/Algoryx/AGX-2.38.0.2/bin'), ('SESSION_MANAGER', 'local/areno-MS-7C56:@/tmp/.ICE-unix/2054,unix/areno-MS-7C56:/tmp/.ICE-unix/2054'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/122c261a_6216_47b9_bae3_d45b960f85cf'), ('AGX_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('AGX_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin/agxpy'), ('DISPLAY', ':1'), ('AGX_BINARY_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.98'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('AGX_LOG_ENABLED', '0'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('AGX_LOG_LEVEL', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('OSG_LD_LIBRARY_PATH', ':/opt/Algoryx/AGX-2.38.0.2/lib'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial'), ('ZIPINFO', '-O CP932'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('AGX_PLUGIN_PATH', '/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/areno/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('AGX_CONFIGURATION_FILE', 'settings.cfg'), ('PYTHONPATH', '/home/areno/inSectWRS2025/wrs_ws/build/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/Algoryx/AGX-2.38.0.2/bin/agxpy:/opt/Algoryx/AGX-2.38.0.2/data/python/modules:'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('AGX_STATISTICS_INTERVAL', '10'), ('CMAKE_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble')]), 'shell': False}
+[0.057891] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099911] (-) TimerEvent: {}
+[0.104695] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.113129] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.176509] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.185211] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.185491] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.185889] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.188908] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.199981] (-) TimerEvent: {}
+[0.259094] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.268130] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.268455] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.268960] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.273450] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.300057] (-) TimerEvent: {}
+[0.395618] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.400133] (-) TimerEvent: {}
+[0.439827] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.494317] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.500210] (-) TimerEvent: {}
+[0.545424] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.550577] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.557871] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.567688] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.581039] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.600286] (-) TimerEvent: {}
+[0.618899] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.621627] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.698837] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[0.700365] (-) TimerEvent: {}
+[0.720868] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[0.754005] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.762760] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[0.800464] (-) TimerEvent: {}
+[0.837489] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[0.838158] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[0.900582] (-) TimerEvent: {}
+[0.921962] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[0.922970] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[0.986827] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.996340] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[1.000627] (-) TimerEvent: {}
+[1.026107] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[1.100713] (-) TimerEvent: {}
+[1.109357] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[1.109455] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[1.109507] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[1.113460] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[1.125309] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[1.125391] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[1.126974] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[1.128690] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Configuring done\n'}
+[1.149839] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Generating done\n'}
+[1.157360] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Build files have been written to: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial\n'}
+[1.165157] (choreonoid_ros2_sample_drone_tutorial) CommandEnded: {'returncode': 0}
+[1.165608] (choreonoid_ros2_sample_drone_tutorial) JobProgress: {'identifier': 'choreonoid_ros2_sample_drone_tutorial', 'progress': 'build'}
+[1.166044] (choreonoid_ros2_sample_drone_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial', '--', '-j12', '-l12'], 'cwd': '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'areno'), ('AGX_COLLADA_DEFAULT_LIB_NAME', 'collada14dom'), ('AGX_STATISTICS_ENABLE', '0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/Algoryx/AGX-2.38.0.2/lib:/opt/Algoryx/AGX-2.38.02/lib:'), ('HOME', '/home/areno'), ('OLDPWD', '/home/areno/inSectWRS2025/wrs_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('AGX_EXTENDED_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/data/python/modules'), ('ROS_PYTHON_VERSION', '3'), ('AGX_DATA_DIR', '/opt/Algoryx/AGX-2.38.0.2/data'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3700'), ('UNZIP', '-O CP932'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('AGX_LOG_OVERWRITE', '0'), ('AGX_DEPENDENCIES_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('OSG_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install:/home/areno/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'areno'), ('AGX_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/cfg:/opt/Algoryx/AGX-2.38.0.2/data/python:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:/opt/Algoryx/AGX-2.38.0.2/data/OpenCL:/opt/Algoryx/AGX-2.38.0.2/data/scenes:/opt/Algoryx/AGX-2.38.0.2/data/sceneDemos'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'areno'), ('TERM', 'xterm-256color'), ('AGX_LOG_FILE', 'agx.log'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/bin:/opt/ros/humble/bin:/home/areno/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/Algoryx/AGX-2.38.0.2/bin'), ('SESSION_MANAGER', 'local/areno-MS-7C56:@/tmp/.ICE-unix/2054,unix/areno-MS-7C56:/tmp/.ICE-unix/2054'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/122c261a_6216_47b9_bae3_d45b960f85cf'), ('AGX_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('AGX_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin/agxpy'), ('DISPLAY', ':1'), ('AGX_BINARY_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.98'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('AGX_LOG_ENABLED', '0'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('AGX_LOG_LEVEL', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('OSG_LD_LIBRARY_PATH', ':/opt/Algoryx/AGX-2.38.0.2/lib'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial'), ('ZIPINFO', '-O CP932'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('AGX_PLUGIN_PATH', '/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/areno/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('AGX_CONFIGURATION_FILE', 'settings.cfg'), ('PYTHONPATH', '/home/areno/inSectWRS2025/wrs_ws/build/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/Algoryx/AGX-2.38.0.2/bin/agxpy:/opt/Algoryx/AGX-2.38.0.2/data/python/modules:'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('AGX_STATISTICS_INTERVAL', '10'), ('CMAKE_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble')]), 'shell': False}
+[1.200791] (-) TimerEvent: {}
+[1.213882] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object src/CMakeFiles/SampleDroneFlightController.dir/SampleDroneFlightController.cpp.o\x1b[0m\n'}
+[1.214064] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object src/CMakeFiles/ResetZeroVelocityController.dir/reset_zero_velocity_controller.cpp.o\x1b[0m\n'}
+[1.214175] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/choreonoid_joy_node.dir/src/choreonoid_joy_node.cpp.o\x1b[0m\n'}
+[1.214243] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object src/CMakeFiles/TwistPublisherController.dir/TwistPublisherController.cpp.o\x1b[0m\n'}
+[1.214297] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object src/CMakeFiles/JoyTopicSubscriberController.dir/JoyTopicSubscriberController.cpp.o\x1b[0m\n'}
+[1.215168] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object src/CMakeFiles/MothcopePanTiltController.dir/MothcopePanTiltController.cpp.o\x1b[0m\n'}
+[1.300933] (-) TimerEvent: {}
+[1.401258] (-) TimerEvent: {}
+[1.501546] (-) TimerEvent: {}
+[1.601893] (-) TimerEvent: {}
+[1.702226] (-) TimerEvent: {}
+[1.802571] (-) TimerEvent: {}
+[1.902930] (-) TimerEvent: {}
+[2.003316] (-) TimerEvent: {}
+[2.103675] (-) TimerEvent: {}
+[2.204015] (-) TimerEvent: {}
+[2.304376] (-) TimerEvent: {}
+[2.404746] (-) TimerEvent: {}
+[2.505111] (-) TimerEvent: {}
+[2.605473] (-) TimerEvent: {}
+[2.705824] (-) TimerEvent: {}
+[2.806188] (-) TimerEvent: {}
+[2.906569] (-) TimerEvent: {}
+[3.006956] (-) TimerEvent: {}
+[3.107333] (-) TimerEvent: {}
+[3.207735] (-) TimerEvent: {}
+[3.308112] (-) TimerEvent: {}
+[3.408491] (-) TimerEvent: {}
+[3.508892] (-) TimerEvent: {}
+[3.609271] (-) TimerEvent: {}
+[3.709639] (-) TimerEvent: {}
+[3.810015] (-) TimerEvent: {}
+[3.910371] (-) TimerEvent: {}
+[4.010739] (-) TimerEvent: {}
+[4.098448] (choreonoid_ros2_sample_drone_tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/src/TwistPublisherController.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual bool TwistPublisherController::initialize(cnoid::SimpleControllerIO*)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.098706] (choreonoid_ros2_sample_drone_tutorial) StderrLine: {'line': b'\x1b[01m\x1b[K/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/src/TwistPublisherController.cpp:53:70:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kio\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[4.098831] (choreonoid_ros2_sample_drone_tutorial) StderrLine: {'line': b'   53 | bool TwistPublisherController::initialize(\x1b[01;35m\x1b[Kcnoid::SimpleControllerIO* io\x1b[m\x1b[K)\n'}
+[4.098918] (choreonoid_ros2_sample_drone_tutorial) StderrLine: {'line': b'      |                                           \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~\x1b[m\x1b[K\n'}
+[4.110845] (-) TimerEvent: {}
+[4.211157] (-) TimerEvent: {}
+[4.311499] (-) TimerEvent: {}
+[4.411864] (-) TimerEvent: {}
+[4.512216] (-) TimerEvent: {}
+[4.612564] (-) TimerEvent: {}
+[4.712904] (-) TimerEvent: {}
+[4.813257] (-) TimerEvent: {}
+[4.838779] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 58%] \x1b[32m\x1b[1mLinking CXX executable node\x1b[0m\n'}
+[4.913388] (-) TimerEvent: {}
+[5.013758] (-) TimerEvent: {}
+[5.027851] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 58%] Built target choreonoid_joy_node\n'}
+[5.113874] (-) TimerEvent: {}
+[5.214220] (-) TimerEvent: {}
+[5.314563] (-) TimerEvent: {}
+[5.414906] (-) TimerEvent: {}
+[5.515256] (-) TimerEvent: {}
+[5.615591] (-) TimerEvent: {}
+[5.715948] (-) TimerEvent: {}
+[5.816294] (-) TimerEvent: {}
+[5.916641] (-) TimerEvent: {}
+[6.017014] (-) TimerEvent: {}
+[6.117361] (-) TimerEvent: {}
+[6.217717] (-) TimerEvent: {}
+[6.318057] (-) TimerEvent: {}
+[6.418377] (-) TimerEvent: {}
+[6.518700] (-) TimerEvent: {}
+[6.619032] (-) TimerEvent: {}
+[6.719353] (-) TimerEvent: {}
+[6.819710] (-) TimerEvent: {}
+[6.920057] (-) TimerEvent: {}
+[7.020408] (-) TimerEvent: {}
+[7.120763] (-) TimerEvent: {}
+[7.221100] (-) TimerEvent: {}
+[7.321437] (-) TimerEvent: {}
+[7.421809] (-) TimerEvent: {}
+[7.522165] (-) TimerEvent: {}
+[7.622540] (-) TimerEvent: {}
+[7.722905] (-) TimerEvent: {}
+[7.823240] (-) TimerEvent: {}
+[7.923588] (-) TimerEvent: {}
+[8.023970] (-) TimerEvent: {}
+[8.124285] (-) TimerEvent: {}
+[8.224597] (-) TimerEvent: {}
+[8.324932] (-) TimerEvent: {}
+[8.425239] (-) TimerEvent: {}
+[8.525551] (-) TimerEvent: {}
+[8.625852] (-) TimerEvent: {}
+[8.726130] (-) TimerEvent: {}
+[8.826410] (-) TimerEvent: {}
+[8.926691] (-) TimerEvent: {}
+[9.026972] (-) TimerEvent: {}
+[9.127257] (-) TimerEvent: {}
+[9.227580] (-) TimerEvent: {}
+[9.277126] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/TwistPublisherController.so\x1b[0m\n'}
+[9.327692] (-) TimerEvent: {}
+[9.428001] (-) TimerEvent: {}
+[9.442775] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 66%] Built target TwistPublisherController\n'}
+[9.528127] (-) TimerEvent: {}
+[9.628444] (-) TimerEvent: {}
+[9.728740] (-) TimerEvent: {}
+[9.829029] (-) TimerEvent: {}
+[9.929319] (-) TimerEvent: {}
+[10.029616] (-) TimerEvent: {}
+[10.129923] (-) TimerEvent: {}
+[10.230233] (-) TimerEvent: {}
+[10.330539] (-) TimerEvent: {}
+[10.430844] (-) TimerEvent: {}
+[10.531147] (-) TimerEvent: {}
+[10.631454] (-) TimerEvent: {}
+[10.731758] (-) TimerEvent: {}
+[10.832048] (-) TimerEvent: {}
+[10.932314] (-) TimerEvent: {}
+[11.032568] (-) TimerEvent: {}
+[11.132850] (-) TimerEvent: {}
+[11.233109] (-) TimerEvent: {}
+[11.333392] (-) TimerEvent: {}
+[11.433690] (-) TimerEvent: {}
+[11.533985] (-) TimerEvent: {}
+[11.634301] (-) TimerEvent: {}
+[11.728946] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/JoyTopicSubscriberController.so\x1b[0m\n'}
+[11.734365] (-) TimerEvent: {}
+[11.806867] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 83%] \x1b[32m\x1b[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/MothcopePanTiltController.so\x1b[0m\n'}
+[11.824728] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 91%] \x1b[32m\x1b[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/ResetZeroVelocityController.so\x1b[0m\n'}
+[11.834472] (-) TimerEvent: {}
+[11.934774] (-) TimerEvent: {}
+[12.035087] (-) TimerEvent: {}
+[12.036727] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 91%] Built target JoyTopicSubscriberController\n'}
+[12.085298] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 91%] Built target MothcopePanTiltController\n'}
+[12.091215] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[ 91%] Built target ResetZeroVelocityController\n'}
+[12.135144] (-) TimerEvent: {}
+[12.235329] (-) TimerEvent: {}
+[12.335552] (-) TimerEvent: {}
+[12.435774] (-) TimerEvent: {}
+[12.535992] (-) TimerEvent: {}
+[12.636207] (-) TimerEvent: {}
+[12.736413] (-) TimerEvent: {}
+[12.836613] (-) TimerEvent: {}
+[12.936829] (-) TimerEvent: {}
+[13.037032] (-) TimerEvent: {}
+[13.137236] (-) TimerEvent: {}
+[13.237431] (-) TimerEvent: {}
+[13.337632] (-) TimerEvent: {}
+[13.437837] (-) TimerEvent: {}
+[13.538030] (-) TimerEvent: {}
+[13.638221] (-) TimerEvent: {}
+[13.738416] (-) TimerEvent: {}
+[13.838612] (-) TimerEvent: {}
+[13.938827] (-) TimerEvent: {}
+[14.039024] (-) TimerEvent: {}
+[14.139221] (-) TimerEvent: {}
+[14.239440] (-) TimerEvent: {}
+[14.339703] (-) TimerEvent: {}
+[14.439952] (-) TimerEvent: {}
+[14.540215] (-) TimerEvent: {}
+[14.640473] (-) TimerEvent: {}
+[14.740732] (-) TimerEvent: {}
+[14.840989] (-) TimerEvent: {}
+[14.846528] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/SampleDroneFlightController.so\x1b[0m\n'}
+[14.941083] (-) TimerEvent: {}
+[15.041330] (-) TimerEvent: {}
+[15.141571] (-) TimerEvent: {}
+[15.238087] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'[100%] Built target SampleDroneFlightController\n'}
+[15.241666] (-) TimerEvent: {}
+[15.250664] (choreonoid_ros2_sample_drone_tutorial) CommandEnded: {'returncode': 0}
+[15.251270] (choreonoid_ros2_sample_drone_tutorial) JobProgress: {'identifier': 'choreonoid_ros2_sample_drone_tutorial', 'progress': 'install'}
+[15.261049] (choreonoid_ros2_sample_drone_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial'], 'cwd': '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'areno'), ('AGX_COLLADA_DEFAULT_LIB_NAME', 'collada14dom'), ('AGX_STATISTICS_ENABLE', '0'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/opt/Algoryx/AGX-2.38.0.2/lib:/opt/Algoryx/AGX-2.38.02/lib:'), ('HOME', '/home/areno'), ('OLDPWD', '/home/areno/inSectWRS2025/wrs_ws'), ('DESKTOP_SESSION', 'ubuntu'), ('AGX_EXTENDED_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/data/python/modules'), ('ROS_PYTHON_VERSION', '3'), ('AGX_DATA_DIR', '/opt/Algoryx/AGX-2.38.0.2/data'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '3700'), ('UNZIP', '-O CP932'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('AGX_LOG_OVERWRITE', '0'), ('AGX_DEPENDENCIES_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('OSG_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install:/home/areno/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'areno'), ('AGX_FILE_PATH', '/opt/Algoryx/AGX-2.38.0.2:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/data:/opt/Algoryx/AGX-2.38.0.2/data/cfg:/opt/Algoryx/AGX-2.38.0.2/data/python:/opt/Algoryx/AGX-2.38.0.2/data/textures:/opt/Algoryx/AGX-2.38.0.2/data/models:/opt/Algoryx/AGX-2.38.0.2/data/collada:/opt/Algoryx/AGX-2.38.0.2/data/OpenCL:/opt/Algoryx/AGX-2.38.0.2/data/scenes:/opt/Algoryx/AGX-2.38.0.2/data/sceneDemos'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/lib/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/x86_64-linux-gnu/pkgconfig:/home/areno/ros2_ws/install/choreonoid/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'areno'), ('TERM', 'xterm-256color'), ('AGX_LOG_FILE', 'agx.log'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/areno/inSectWRS2025/wrs_ws/install/choreonoid/bin:/opt/ros/humble/bin:/home/areno/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/opt/Algoryx/AGX-2.38.0.2/bin'), ('SESSION_MANAGER', 'local/areno-MS-7C56:@/tmp/.ICE-unix/2054,unix/areno-MS-7C56:/tmp/.ICE-unix/2054'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/122c261a_6216_47b9_bae3_d45b960f85cf'), ('AGX_DIR', '/opt/Algoryx/AGX-2.38.0.2'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('AGX_PYTHON_MODULES_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin/agxpy'), ('DISPLAY', ':1'), ('AGX_BINARY_DIR', '/opt/Algoryx/AGX-2.38.0.2/bin'), ('LANG', 'ja_JP.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.98'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('AGX_LOG_ENABLED', '0'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('AGX_LOG_LEVEL', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('OSG_LD_LIBRARY_PATH', ':/opt/Algoryx/AGX-2.38.0.2/lib'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial'), ('ZIPINFO', '-O CP932'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('AGX_PLUGIN_PATH', '/opt/Algoryx/AGX-2.38.0.2/bin/plugins:/opt/Algoryx/AGX-2.38.0.2/bin'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/home/areno/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('AGX_CONFIGURATION_FILE', 'settings.cfg'), ('PYTHONPATH', '/home/areno/inSectWRS2025/wrs_ws/build/flipper_serial_interface:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages:/opt/Algoryx/AGX-2.38.0.2/bin/agxpy:/opt/Algoryx/AGX-2.38.0.2/data/python/modules:'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('AGX_STATISTICS_INTERVAL', '10'), ('CMAKE_PREFIX_PATH', '/home/areno/inSectWRS2025/wrs_ws/install/slam_stack:/home/areno/inSectWRS2025/wrs_ws/install/cnoid_scene_tf:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_sample_drone_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros2_mobile_robot_tutorial:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_ros:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid_joy2:/home/areno/inSectWRS2025/wrs_ws/install/choreonoid:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble')]), 'shell': False}
+[15.270048] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[15.270644] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[15.271142] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/SampleDroneFlightController.so\n'}
+[15.277817] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/TwistPublisherController.so\n'}
+[15.287597] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/JoyTopicSubscriberController.so\n'}
+[15.297678] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/ResetZeroVelocityController.so\n'}
+[15.307773] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/MothcopePanTiltController.so\n'}
+[15.318095] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/package_run_dependencies/choreonoid_ros2_sample_drone_tutorial\n'}
+[15.328528] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/parent_prefix_path/choreonoid_ros2_sample_drone_tutorial\n'}
+[15.338842] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/ament_prefix_path.sh\n'}
+[15.341727] (-) TimerEvent: {}
+[15.349197] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/ament_prefix_path.dsv\n'}
+[15.359684] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/path.sh\n'}
+[15.370476] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/path.dsv\n'}
+[15.380798] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.bash\n'}
+[15.391096] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.sh\n'}
+[15.401470] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.zsh\n'}
+[15.411888] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.dsv\n'}
+[15.422193] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/package.dsv\n'}
+[15.434065] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/packages/choreonoid_ros2_sample_drone_tutorial\n'}
+[15.441801] (-) TimerEvent: {}
+[15.445108] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/cmake/choreonoid_ros2_sample_drone_tutorialConfig.cmake\n'}
+[15.455562] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/cmake/choreonoid_ros2_sample_drone_tutorialConfig-version.cmake\n'}
+[15.466124] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/package.xml\n'}
+[15.476494] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/project/sample_drone.cnoid\n'}
+[15.482847] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/project/sample_drone_teleop.cnoid\n'}
+[15.489285] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/launch/flight_control_launch.xml\n'}
+[15.498674] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/launch/flight_control_teleop_launch.xml\n'}
+[15.508546] (choreonoid_ros2_sample_drone_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/model/sample_drone.body\n'}
+[15.520821] (choreonoid_ros2_sample_drone_tutorial) CommandEnded: {'returncode': 0}
+[15.541686] (choreonoid_ros2_sample_drone_tutorial) JobEnded: {'identifier': 'choreonoid_ros2_sample_drone_tutorial', 'rc': 0}
+[15.542378] (-) TimerEvent: {}
+[15.542461] (-) EventReactorShutdown: {}

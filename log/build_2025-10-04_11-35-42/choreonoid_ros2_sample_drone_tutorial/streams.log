@@ -1,0 +1,99 @@
+[0.008s] Invoking command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial
+[0.057s] -- The C compiler identification is GNU 11.4.0
+[0.104s] -- The CXX compiler identification is GNU 11.4.0
+[0.113s] -- Detecting C compiler ABI info
+[0.176s] -- Detecting C compiler ABI info - done
+[0.185s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.185s] -- Detecting C compile features
+[0.185s] -- Detecting C compile features - done
+[0.188s] -- Detecting CXX compiler ABI info
+[0.259s] -- Detecting CXX compiler ABI info - done
+[0.268s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.268s] -- Detecting CXX compile features
+[0.268s] -- Detecting CXX compile features - done
+[0.273s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.395s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.439s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.494s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.545s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.550s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.557s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.567s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.581s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.618s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.621s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.698s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.720s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.754s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.762s] -- Looking for pthread.h
+[0.837s] -- Looking for pthread.h - found
+[0.838s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.922s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.922s] -- Found Threads: TRUE  
+[0.986s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.996s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.026s] -- Found ament_lint_auto: 0.12.14 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.109s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.109s] -- Configured cppcheck include dirs: 
+[1.109s] -- Configured cppcheck exclude dirs and/or files: 
+[1.113s] -- Added test 'lint_cmake' to check CMake code style
+[1.125s] -- Added test 'uncrustify' to check C / C++ code style
+[1.125s] -- Configured uncrustify additional arguments: 
+[1.127s] -- Added test 'xmllint' to check XML markup files
+[1.128s] -- Configuring done
+[1.149s] -- Generating done
+[1.157s] -- Build files have been written to: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial
+[1.165s] Invoked command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial
+[1.166s] Invoking command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake --build /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial -- -j12 -l12
+[1.213s] [ 16%] [32mBuilding CXX object src/CMakeFiles/SampleDroneFlightController.dir/SampleDroneFlightController.cpp.o[0m
+[1.214s] [ 16%] [32mBuilding CXX object src/CMakeFiles/ResetZeroVelocityController.dir/reset_zero_velocity_controller.cpp.o[0m
+[1.214s] [ 25%] [32mBuilding CXX object CMakeFiles/choreonoid_joy_node.dir/src/choreonoid_joy_node.cpp.o[0m
+[1.214s] [ 33%] [32mBuilding CXX object src/CMakeFiles/TwistPublisherController.dir/TwistPublisherController.cpp.o[0m
+[1.214s] [ 41%] [32mBuilding CXX object src/CMakeFiles/JoyTopicSubscriberController.dir/JoyTopicSubscriberController.cpp.o[0m
+[1.215s] [ 50%] [32mBuilding CXX object src/CMakeFiles/MothcopePanTiltController.dir/MothcopePanTiltController.cpp.o[0m
+[4.098s] [01m[K/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/src/TwistPublisherController.cpp:[m[K In member function ‘[01m[Kvirtual bool TwistPublisherController::initialize(cnoid::SimpleControllerIO*)[m[K’:
+[4.098s] [01m[K/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/src/TwistPublisherController.cpp:53:70:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kio[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.098s]    53 | bool TwistPublisherController::initialize([01;35m[Kcnoid::SimpleControllerIO* io[m[K)
+[4.098s]       |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[4.838s] [ 58%] [32m[1mLinking CXX executable node[0m
+[5.027s] [ 58%] Built target choreonoid_joy_node
+[9.277s] [ 66%] [32m[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/TwistPublisherController.so[0m
+[9.442s] [ 66%] Built target TwistPublisherController
+[11.729s] [ 75%] [32m[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/JoyTopicSubscriberController.so[0m
+[11.806s] [ 83%] [32m[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/MothcopePanTiltController.so[0m
+[11.824s] [ 91%] [32m[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/ResetZeroVelocityController.so[0m
+[12.036s] [ 91%] Built target JoyTopicSubscriberController
+[12.085s] [ 91%] Built target MothcopePanTiltController
+[12.091s] [ 91%] Built target ResetZeroVelocityController
+[14.846s] [100%] [32m[1mLinking CXX shared library ../lib/choreonoid-2.3/simplecontroller/SampleDroneFlightController.so[0m
+[15.238s] [100%] Built target SampleDroneFlightController
+[15.250s] Invoked command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake --build /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial -- -j12 -l12
+[15.261s] Invoking command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake --install /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial
+[15.270s] -- Install configuration: ""
+[15.270s] -- Execute custom install script
+[15.271s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/SampleDroneFlightController.so
+[15.277s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/TwistPublisherController.so
+[15.287s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/JoyTopicSubscriberController.so
+[15.297s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/ResetZeroVelocityController.so
+[15.307s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/lib/choreonoid-2.3/simplecontroller/MothcopePanTiltController.so
+[15.318s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/package_run_dependencies/choreonoid_ros2_sample_drone_tutorial
+[15.328s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/parent_prefix_path/choreonoid_ros2_sample_drone_tutorial
+[15.338s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/ament_prefix_path.sh
+[15.349s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/ament_prefix_path.dsv
+[15.359s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/path.sh
+[15.370s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/environment/path.dsv
+[15.380s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.bash
+[15.391s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.sh
+[15.401s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.zsh
+[15.411s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/local_setup.dsv
+[15.422s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/package.dsv
+[15.434s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/ament_index/resource_index/packages/choreonoid_ros2_sample_drone_tutorial
+[15.445s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/cmake/choreonoid_ros2_sample_drone_tutorialConfig.cmake
+[15.455s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/cmake/choreonoid_ros2_sample_drone_tutorialConfig-version.cmake
+[15.466s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/package.xml
+[15.476s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/project/sample_drone.cnoid
+[15.482s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/project/sample_drone_teleop.cnoid
+[15.489s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/launch/flight_control_launch.xml
+[15.498s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/launch/flight_control_teleop_launch.xml
+[15.508s] -- Symlinking: /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/install/choreonoid_ros2_sample_drone_tutorial/share/choreonoid_ros2_sample_drone_tutorial/model/sample_drone.body
+[15.521s] Invoked command in '/home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/areno/inSectWRS2025/wrs_ws/install/flipper_serial_interface:/opt/ros/humble /usr/bin/cmake --install /home/areno/inSectWRS2025/wrs_ws/src/choreonoid_ros2_sample_drone_tutorial/build/choreonoid_ros2_sample_drone_tutorial

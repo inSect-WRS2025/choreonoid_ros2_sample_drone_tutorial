@@ -42,13 +42,7 @@ add_executable(choreonoid_joy_node src/choreonoid_joy_node.cpp)
 set_target_properties(choreonoid_joy_node PROPERTIES OUTPUT_NAME node PREFIX "")
 target_link_libraries(choreonoid_joy_node Choreonoid::CnoidUtil)
 ament_target_dependencies(choreonoid_joy_node rclcpp sensor_msgs choreonoid)
-add_executable(joy_to_pan_tilt_converter src/joy_to_pan_tilt_converter.cpp)
-ament_target_dependencies(joy_to_pan_tilt_converter rclcpp sensor_msgs geometry_msgs)
 
-install(TARGETS
-  choreonoid_joy_node
-  joy_to_pan_tilt_converter
-  DESTINATION lib/${PROJECT_NAME})
 
 ament_package()
 

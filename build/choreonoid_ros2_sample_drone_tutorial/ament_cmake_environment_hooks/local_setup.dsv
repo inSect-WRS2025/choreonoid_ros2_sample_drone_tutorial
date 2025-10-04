@@ -1,0 +1,2 @@
+source;share/choreonoid_ros2_sample_drone_tutorial/environment/ament_prefix_path.sh
+source;share/choreonoid_ros2_sample_drone_tutorial/environment/path.sh

@@ -1,0 +1,8 @@
+source;share/choreonoid_ros2_sample_drone_tutorial/hook/cmake_prefix_path.ps1
+source;share/choreonoid_ros2_sample_drone_tutorial/hook/cmake_prefix_path.dsv
+source;share/choreonoid_ros2_sample_drone_tutorial/hook/cmake_prefix_path.sh
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.bash
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.dsv
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.ps1
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.sh
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.zsh

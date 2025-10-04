@@ -1,0 +1,4 @@
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.bash
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.dsv
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.sh
+source;share/choreonoid_ros2_sample_drone_tutorial/local_setup.zsh
