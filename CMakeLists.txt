@@ -47,6 +47,10 @@ add_executable(joy_multiplexer src/joy_multiplexer.cpp)
 ament_target_dependencies(joy_multiplexer rclcpp sensor_msgs geometry_msgs)
 install(TARGETS joy_multiplexer DESTINATION lib/${PROJECT_NAME})
 
+add_executable(joy_to_cmd_vel src/joy_to_cmd_vel.cpp)
+ament_target_dependencies(joy_to_cmd_vel rclcpp sensor_msgs geometry_msgs)
+install(TARGETS joy_to_cmd_vel DESTINATION lib/${PROJECT_NAME})
+
 
 ament_package()
 

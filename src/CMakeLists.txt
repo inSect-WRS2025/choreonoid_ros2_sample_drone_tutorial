@@ -51,3 +51,9 @@ choreonoid_add_simple_controller(
     
 ament_target_dependencies(
     MobileRobotTrackController rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    AgxTankRos2Controller AgxTankRos2Controller.cpp)
+    
+ament_target_dependencies(
+    AgxTankRos2Controller rclcpp sensor_msgs)
