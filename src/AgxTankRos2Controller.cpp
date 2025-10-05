@@ -5,7 +5,6 @@
 #include <thread>
 #include <mutex>
 #include <algorithm>
-#include <algorithm>
 
 class AgxTankRos2Controller : public cnoid::SimpleController
 {
@@ -17,11 +16,8 @@ public:
 
 private:
     cnoid::Link* sprockets[2];
-    cnoid::Link* flipperLeft[2];
-    cnoid::Link* flipperRight[2];
     double track_width;
     double main_sprocket_radius_ = 0.10;    // [m]
-    double flipper_sprocket_radius_ = 0.10;  // [m]
     rclcpp::Node::SharedPtr node;
     rclcpp::Subscription<geometry_msgs::msg::Twist>::SharedPtr subscription;
     geometry_msgs::msg::Twist command;
@@ -53,11 +49,6 @@ bool AgxTankRos2Controller::initialize(cnoid::SimpleControllerIO* io)
     auto body = io->body();
     sprockets[0] = body->joint("WHEEL_L0"); // Left Sprocket
     sprockets[1] = body->joint("WHEEL_R0"); // Right Sprocket
-    // Optional flipper sprockets (if present)
-    flipperLeft[0] = body->joint("FL_WHEEL_L0");
-    flipperRight[0] = body->joint("FL_WHEEL_R0");
-    flipperLeft[1] = body->joint("FL_WHEEL_LB0");
-    flipperRight[1] = body->joint("FL_WHEEL_RB0");
 
     if (!sprockets[0] || !sprockets[1]) {
         RCLCPP_ERROR(node->get_logger(), "Sprocket joints not found.");
@@ -69,25 +60,10 @@ bool AgxTankRos2Controller::initialize(cnoid::SimpleControllerIO* io)
         sprocket->setActuationMode(cnoid::Link::JointVelocity);
         io->enableOutput(sprocket);
     }
-
-    // Enable flipper sprockets if available
-    for(int i=0; i < 2; ++i){
-        if(flipperLeft[i]){
-            flipperLeft[i]->setActuationMode(cnoid::Link::JointVelocity);
-            io->enableOutput(flipperLeft[i]);
-            RCLCPP_INFO(node->get_logger(), "FlipperLeft[%d] joint found: %s", i, flipperLeft[i]->name().c_str());
-        }
-        if(flipperRight[i]){
-            flipperRight[i]->setActuationMode(cnoid::Link::JointVelocity);
-            io->enableOutput(flipperRight[i]);
-            RCLCPP_INFO(node->get_logger(), "FlipperRight[%d] joint found: %s", i, flipperRight[i]->name().c_str());
-        }
-    }
-
+    
     // Calculate track width from joint positions
     track_width = std::abs(sprockets[0]->translation().y() - sprockets[1]->translation().y());
     RCLCPP_INFO(node->get_logger(), "Track width calculated: %f", track_width);
-
 
     return true;
 }
@@ -118,23 +94,8 @@ bool AgxTankRos2Controller::control()
     sprockets[0]->dq_target() = std::clamp(w_left_main, -w_max, w_max);
     sprockets[1]->dq_target() = std::clamp(w_right_main, -w_max, w_max);
 
-    // Drive flipper tracks synchronously with the main tracks, if present
-    // i=0: front, i=1: rear (rear orientation is flipped in X)
-    for(int i=0; i<2; ++i){
-        const double sign = (i == 0) ? 1.0 : -1.0;
-        if(flipperLeft[i]){
-            double w = sign * (v_left / std::max(1e-6, flipper_sprocket_radius_));
-            flipperLeft[i]->dq_target() = std::clamp(w, -w_max, w_max);
-        }
-        if(flipperRight[i]){
-            double w = sign * (v_right / std::max(1e-6, flipper_sprocket_radius_));
-            flipperRight[i]->dq_target() = std::clamp(w, -w_max, w_max);
-        }
-    }
-
     return true;
 }
-
 
 void AgxTankRos2Controller::unconfigure()
 {

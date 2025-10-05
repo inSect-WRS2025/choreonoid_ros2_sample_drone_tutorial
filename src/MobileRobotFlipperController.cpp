@@ -1,5 +1,6 @@
-// MobileRobotFlipperController.cpp (updated: stall unlock logic added)
+// MobileRobotFlipperController.cpp
 #include <cnoid/SimpleController>
+#include <cnoid/SharedJoystick>
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/joint_state.hpp>
 #include <memory>
@@ -11,7 +12,14 @@
 #include <cmath>
 #include <chrono>
 
+using namespace std;
 using namespace cnoid;
+
+namespace {
+
+const double STICK_THRESH = 0.1;
+
+}
 
 class MobileRobotFlipperController : public SimpleController
 {
@@ -50,8 +58,20 @@ private:
         {"FlipperRearLeftJoint", 2},
         {"FlipperRearRightJoint", 3}
     };
+    
+    // フリッパーごとの可動範囲を定義
+    std::array<double, 4> flipper_min_limits_;
+    std::array<double, 4> flipper_max_limits_;
 
     std::chrono::steady_clock::time_point lastLogTime_;
+    
+    // AizuSpiderControllerのフリッパー制御ロジックのための変数
+    enum { FR_FLIPPER, FL_FLIPPER, BR_FLIPPER, BL_FLIPPER, NUM_FLIPPERS };
+    SharedJoystickPtr joystick;
+    int targetMode;
+
+    // メンバ関数の宣言を追加
+    void updateFlipperTargetPositions();
 };
 
 CNOID_IMPLEMENT_SIMPLE_CONTROLLER_FACTORY(MobileRobotFlipperController)
@@ -65,33 +85,26 @@ bool MobileRobotFlipperController::configure(SimpleControllerConfig* config)
     }
     node_ = std::make_shared<rclcpp::Node>(config->controllerName());
 
-    // Subscriber: msg.position は「瞬時オフセット」（joy 側が中立なら 0 を送る前提）
     sub_ = node_->create_subscription<sensor_msgs::msg::JointState>(
         "flipper_command", 10,
         [this](const sensor_msgs::msg::JointState::SharedPtr msg){
             std::lock_guard<std::mutex> lock(cmdMutex_);
-
-            constexpr double joint_limit         = 1.57;
-            constexpr double deadband_enter      = 0.02; // オフセットがこれより大きければ入力あり
-            constexpr double deadband_exit       = 0.01; // これ以下なら入力終了とみなす
+            
+            constexpr double deadband_enter = 0.02;
 
             for (size_t i = 0; i < msg->name.size(); ++i) {
                 auto it = jointNameMap.find(msg->name[i]);
                 if (it == jointNameMap.end()) continue;
                 int idx = it->second;
                 if (i >= msg->position.size()) continue;
-                double offset = msg->position[i]; // 瞬時オフセット（joy 側）
+                double offset = msg->position[i];
 
                 if (std::abs(offset) > deadband_enter) {
-                    // 入力開始または継続
                     activeInput_[idx] = true;
-                    double target = hold_pos_[idx] + std::clamp(offset, -joint_limit, joint_limit);
-                    target = std::clamp(target, -joint_limit, joint_limit);
-                    cmd_[idx] = target;
+                    cmd_[idx] = hold_pos_[idx] + offset;
+                    cmd_[idx] = std::clamp(cmd_[idx], flipper_min_limits_[idx], flipper_max_limits_[idx]);
                 } else {
-                    // オフセットが小さい -> 未入力と判断
                     if (activeInput_[idx]) {
-                        // 入力直後の終了判定: 現在の cmd を hold に採用
                         activeInput_[idx] = false;
                         hold_pos_[idx] = cmd_[idx];
                     }
@@ -110,100 +123,107 @@ bool MobileRobotFlipperController::configure(SimpleControllerConfig* config)
 
 bool MobileRobotFlipperController::initialize(SimpleControllerIO* io)
 {
-    // 10度をラジアンに変換する定数
-    // 10.0 * M_PI / 180.0 = 0.174532925...
-    constexpr double DEG10_TO_RAD = 10.0 * M_PI / 180.0; 
+    constexpr double DEG10_TO_RAD = 10.0 * M_PI / 180.0;
+    
+    const double DEG40_TO_RAD = 40.0 * M_PI / 180.0;
+    const double DEG90_TO_RAD = 90.0 * M_PI / 180.0;
+    
+    flipper_min_limits_ = {
+        -DEG90_TO_RAD,
+        -DEG90_TO_RAD,
+        -DEG40_TO_RAD,
+        -DEG40_TO_RAD
+    };
+    flipper_max_limits_ = {
+        DEG40_TO_RAD,
+        DEG40_TO_RAD,
+        DEG90_TO_RAD,
+        DEG90_TO_RAD
+    };
 
     auto body = io->body();
     for (int i = 0; i < 4; ++i) {
         flippers_[i] = nullptr;
     }
 
-    // JointNameMap: {"FlipperLeftJoint", 0}, {"FlipperRightJoint", 1}, {"FlipperRearLeftJoint", 2}, {"FlipperRearRightJoint", 3}
-    flippers_[0] = body->joint("FlipperLeftJoint");
-    flippers_[1] = body->joint("FlipperRightJoint");
-    flippers_[2] = body->joint("FlipperRearLeftJoint");
-    flippers_[3] = body->joint("FlipperRearRightJoint");
+    flippers_[0] = body->joint(14); // FLIPPER_L_BASE
+    flippers_[1] = body->joint(15); // FLIPPER_R_BASE
+    flippers_[2] = body->joint(16); // FLIPPER_L_REAR_BASE
+    flippers_[3] = body->joint(17); // FLIPPER_R_REAR_BASE
 
-    // 初期目標角度の定義
-    // Flipper 0: -10 deg, Flipper 1: +10 deg, Flipper 2: -10 deg, Flipper 3: +10 deg
     const std::array<double, 4> initial_targets = {
-        -DEG10_TO_RAD,  // FlipperLeftJoint (0)
-        DEG10_TO_RAD,   // FlipperRightJoint (1)
-        -DEG10_TO_RAD,  // FlipperRearLeftJoint (2)
-        DEG10_TO_RAD    // FlipperRearRightJoint (3)
+        -DEG10_TO_RAD,
+        DEG10_TO_RAD,
+        -DEG10_TO_RAD,
+        DEG10_TO_RAD
     };
 
     for (int i = 0; i < 4; ++i) {
         if (!flippers_[i]) {
-            RCLCPP_WARN(node_->get_logger(), "Joint %d not found.", i);
+            RCLCPP_WARN(node_->get_logger(), "Joint for flipper index %d not found.", i);
             continue;
         }
-        // トルク制御モード
         flippers_[i]->setActuationMode(Link::JointTorque);
-        // 環境互換のため JointVelocity を enable（q,dq は取得できます）
         io->enableInput(flippers_[i], Link::JointVelocity);
         io->enableOutput(flippers_[i], Link::JointTorque);
 
-        // ** ここから変更 **
-        // 初期保持位置と目標位置を指定角度でセット
-        hold_pos_[i] = initial_targets[i]; // 指定された初期目標位置
-        cmd_[i] = initial_targets[i];      // 指定された初期目標位置
-        // ** 変更終わり **
+        hold_pos_[i] = initial_targets[i]; 
+        cmd_[i] = initial_targets[i];      
 
         prev_cmd_[i] = cmd_[i];
-        prev_q_[i] = flippers_[i]->q(); // 現在角度は実際のフリッパーから取得
+        prev_q_[i] = flippers_[i]->q();
         ma_abs_dq_[i] = 0.0;
         stall_count_[i] = 0;
         stall_locked_[i] = false;
 
-        RCLCPP_INFO(node_->get_logger(), "[Init][%d] hold_q=%.4f, init_target=%.4f", i, hold_pos_[i], cmd_[i]);
+        RCLCPP_INFO(node_->get_logger(), "[Init][%d] joint name: %s, jointId: %d, hold_q=%.4f, init_target=%.4f", 
+            i, flippers_[i]->name().c_str(), flippers_[i]->jointId(), hold_pos_[i], cmd_[i]);
     }
+    
+    joystick = io->getOrCreateSharedObject<SharedJoystick>("joystick");
+    targetMode = joystick->addMode();
 
     return true;
 }
 
 bool MobileRobotFlipperController::control()
 {
-    // PD 控制パラメータ（保守的）
     constexpr double kp = 7.0;
     constexpr double kd = 4.0;
     constexpr double error_deadband = 0.005;
     constexpr double dq_deadband = 0.02;
 
-    // rate limit step per cycle（ラジアン）
-    const double max_step_per_cycle = 0.05;
+    constexpr double torque_stall_ratio = 0.8;
+    constexpr int stall_threshold_count = 20;
+    constexpr double dq_moving_threshold = 0.05;
+    constexpr double ma_alpha = 0.08;
 
-    // stall 判定パラメータ
-    constexpr double torque_stall_ratio = 0.8;    // torque が limit の何割なら懸念
-    constexpr int stall_threshold_count = 20;     // 連続サイクル数（少し短め）
-    constexpr double dq_moving_threshold = 0.05; // dq の移動平均がこの以下なら停止とみなす
-    constexpr double ma_alpha = 0.08;             // dq 移動平均の係数
-
-    constexpr double torque_limit = 6.0; // 要調整
+    constexpr double torque_limit = 6.0;
 
     std::array<double,4> local_cmd;
     {
         std::lock_guard<std::mutex> lock(cmdMutex_);
         local_cmd = cmd_;
     }
+    
+    joystick->updateState(targetMode);
+    updateFlipperTargetPositions();
 
     for (int i = 0; i < 4; ++i) {
         if (!flippers_[i]) continue;
 
-        double target = local_cmd[i];
-
-        // 目標のレート制限（滑らか化）
-        double limited_target = std::clamp(target, prev_cmd_[i] - max_step_per_cycle, prev_cmd_[i] + max_step_per_cycle);
-
+        double limited_target;
+        if (activeInput_[i] || !stall_locked_[i]) {
+            limited_target = local_cmd[i];
+        } else {
+            limited_target = hold_pos_[i];
+        }
+        
         double q = flippers_[i]->q();
         double dq = flippers_[i]->dq();
 
-        // 移動平均で dq の絶対値を追う（ノイズ吸収）
         ma_abs_dq_[i] = (1.0 - ma_alpha) * ma_abs_dq_[i] + ma_alpha * std::abs(dq);
 
-        // ** stall_locked の解除判定 **
-        // 動きが回復したらロック解除する（ma_abs_dq が大きい or 目標と現在角が一致）
         if (stall_locked_[i]) {
             bool motion_recovered = (ma_abs_dq_[i] > dq_moving_threshold * 2.5);
             bool reached_target = (std::abs(prev_cmd_[i] - q) < error_deadband * 5.0);
@@ -211,10 +231,8 @@ bool MobileRobotFlipperController::control()
                 stall_locked_[i] = false;
                 stall_count_[i] = 0;
                 RCLCPP_INFO(node_->get_logger(), "Flipper %d stall lock cleared (motion_recovered=%d,reached_target=%d).", i, (int)motion_recovered, (int)reached_target);
-                // fallthrough to normal operation
             } else {
-                // まだロック中：極小トルクで保持して進まないようにする
-                flippers_[i]->u() = 0.02 * (limited_target - q); // ごく弱く位置保持
+                flippers_[i]->u() = 0.02 * (limited_target - q);
                 prev_cmd_[i] = limited_target;
                 prev_q_[i] = q;
                 continue;
@@ -234,7 +252,6 @@ bool MobileRobotFlipperController::control()
 
         double torque = std::clamp(raw_torque, -torque_limit, torque_limit);
 
-        // スタック判定（高トルクかつほとんど動いていない）
         double torque_abs = std::abs(torque);
         if (ma_abs_dq_[i] < dq_moving_threshold && torque_abs > (torque_stall_ratio * torque_limit)) {
             stall_count_[i]++;
@@ -243,7 +260,6 @@ bool MobileRobotFlipperController::control()
         }
 
         if (stall_count_[i] > stall_threshold_count) {
-            // クールダウンで過剰ログを防ぐ
             double now_sec = std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();
             if (!stall_locked_[i] && (now_sec - last_warn_time_[i] > 1.0)) {
                 RCLCPP_WARN(node_->get_logger(),
@@ -251,34 +267,30 @@ bool MobileRobotFlipperController::control()
                 last_warn_time_[i] = now_sec;
             }
 
-            // 一度安全措置として目標を現在角にリセットし、トルクを抑え、ロックする
             cmd_[i] = q;
             hold_pos_[i] = q;
             prev_cmd_[i] = q;
             prev_q_[i] = q;
-            flippers_[i]->u() = 0.02 * (limited_target - q); // ごく弱く保持
+            flippers_[i]->u() = 0.02 * (limited_target - q);
             stall_count_[i] = 0;
-            stall_locked_[i] = true; // ロックして同じ警告をスパムしない
+            stall_locked_[i] = true;
             continue;
         } else {
-            // 通常運転フロー
             flippers_[i]->u() = torque;
         }
 
-        // prev 更新
         prev_cmd_[i] = limited_target;
         prev_q_[i] = q;
     }
 
-    // ログ出力（0.5秒ごと）
     auto now = std::chrono::steady_clock::now();
     if (std::chrono::duration<double>(now - lastLogTime_).count() >= 0.5) {
         lastLogTime_ = now;
         for (int i = 0; i < 4; ++i) {
             if (!flippers_[i]) continue;
             RCLCPP_INFO(node_->get_logger(),
-                "[Flipper %d] hold=%.4f, target=%.4f, q=%.4f, torque=%.4f, ma_abs_dq=%.5f, stalled=%s",
-                i, hold_pos_[i], local_cmd[i], flippers_[i]->q(), flippers_[i]->u(),
+                "[Flipper %d] jointId: %d, hold=%.4f, target=%.4f, q=%.4f, torque=%.4f, ma_abs_dq=%.5f, stalled=%s",
+                i, flippers_[i]->jointId(), hold_pos_[i], local_cmd[i], flippers_[i]->u(),
                 ma_abs_dq_[i],
                 stall_locked_[i] ? "YES" : "NO");
         }
@@ -296,4 +308,63 @@ void MobileRobotFlipperController::unconfigure()
         executor_.reset();
     }
     if (rclcpp::ok()) rclcpp::shutdown();
+}
+
+void MobileRobotFlipperController::updateFlipperTargetPositions()
+{
+    static const double FLIPPER_GAIN = 0.5;
+
+    // Rスティックボタンが押されている場合はフリッパーの位置を揃える
+    if(joystick->getButtonState(targetMode, Joystick::R_STICK_BUTTON)){
+        double qa = 0.0;
+        for(int i=0; i < 4; ++i){
+            qa += cmd_[i];
+        }
+        qa /= static_cast<double>(4);
+        double dqmax = 0.05;
+        for(int i=0; i < 4; ++i){
+            double dq = qa - cmd_[i];
+            if(dq > dqmax){
+                dq = dqmax;
+            } else if(dq < -dqmax){
+                dq = -dqmax;
+            }
+            cmd_[i] += dq;
+            cmd_[i] = std::clamp(cmd_[i], flipper_min_limits_[i], flipper_max_limits_[i]);
+        }
+    } else {
+        double pos = joystick->getPosition(targetMode, Joystick::R_STICK_V_AXIS, STICK_THRESH);
+        double dq = FLIPPER_GAIN * pos;
+        bool FL = joystick->getPosition(targetMode, Joystick::L_TRIGGER_AXIS, STICK_THRESH) > 0.0;
+        bool FR = joystick->getPosition(targetMode, Joystick::R_TRIGGER_AXIS, STICK_THRESH) > 0.0;
+        bool BL = joystick->getButtonState(targetMode, Joystick::L_BUTTON);
+        bool BR = joystick->getButtonState(targetMode, Joystick::R_BUTTON);
+        
+        if(!FL && !FR && !BL && !BR){
+            // 同期モード
+            for(int i=0; i < 4; ++i){
+                cmd_[i] += dq;
+                cmd_[i] = std::clamp(cmd_[i], flipper_min_limits_[i], flipper_max_limits_[i]);
+            }
+        } else {
+            // 個別モード
+            // ジョイスティックのボタンとフリッパーの論理的なインデックスを対応させる
+            if(FL){
+                cmd_[FL_FLIPPER] += dq;
+                cmd_[FL_FLIPPER] = std::clamp(cmd_[FL_FLIPPER], flipper_min_limits_[FL_FLIPPER], flipper_max_limits_[FL_FLIPPER]);
+            }
+            if(FR){
+                cmd_[FR_FLIPPER] += dq;
+                cmd_[FR_FLIPPER] = std::clamp(cmd_[FR_FLIPPER], flipper_min_limits_[FR_FLIPPER], flipper_max_limits_[FR_FLIPPER]);
+            }
+            if(BL){
+                cmd_[BL_FLIPPER] += dq;
+                cmd_[BL_FLIPPER] = std::clamp(cmd_[BL_FLIPPER], flipper_min_limits_[BL_FLIPPER], flipper_max_limits_[BL_FLIPPER]);
+            }
+            if(BR){
+                cmd_[BR_FLIPPER] += dq;
+                cmd_[BR_FLIPPER] = std::clamp(cmd_[BR_FLIPPER], flipper_min_limits_[BR_FLIPPER], flipper_max_limits_[BR_FLIPPER]);
+            }
+        }
+    }
 }
