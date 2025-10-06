@@ -147,7 +147,7 @@ bool MobileRobotFlipperController::initialize(SimpleControllerIO* io)
     // 0: FL_FLIPPER, 1: FR_FLIPPER, 2: BL_FLIPPER, 3: BR_FLIPPER
     // ここで各フリッパーに固有のゲイン値を設定します。
     // 例: flipper_gains_ = { 0.5, 0.4, 0.6, 0.5 };
-    flipper_gains_ = { 5.0, 0.5, 1.5, 1.5 };
+    flipper_gains_ = { 0.1, 1.5, 0.5, 0.5 };
 
     auto body = io->body();
     for (int i = 0; i < 4; ++i) {
