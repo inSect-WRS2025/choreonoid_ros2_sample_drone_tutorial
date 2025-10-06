@@ -1,3 +1,4 @@
+// MobileRobotFlipperController.cpp
 #include <cnoid/SimpleController>
 #include <cnoid/SharedJoystick>
 #include <rclcpp/rclcpp.hpp>
@@ -65,12 +66,9 @@ private:
     std::chrono::steady_clock::time_point lastLogTime_;
     
     // AizuSpiderControllerのフリッパー制御ロジックのための変数
-    enum { FL_FLIPPER, FR_FLIPPER, BL_FLIPPER, BR_FLIPPER, NUM_FLIPPERS };
+    enum { FR_FLIPPER, FL_FLIPPER, BR_FLIPPER, BL_FLIPPER, NUM_FLIPPERS };
     SharedJoystickPtr joystick;
     int targetMode;
-
-    // フリッパーごとのゲインを定義する配列を追加
-    std::array<double, 4> flipper_gains_;
 
     // メンバ関数の宣言を追加
     void updateFlipperTargetPositions();
@@ -142,12 +140,6 @@ bool MobileRobotFlipperController::initialize(SimpleControllerIO* io)
         DEG90_TO_RAD,
         DEG90_TO_RAD
     };
-    
-    // フリッパーごとのゲインを初期化
-    // 0: FL_FLIPPER, 1: FR_FLIPPER, 2: BL_FLIPPER, 3: BR_FLIPPER
-    // ここで各フリッパーに固有のゲイン値を設定します。
-    // 例: flipper_gains_ = { 0.5, 0.4, 0.6, 0.5 };
-    flipper_gains_ = { 0.5, 0.5, 0.5, 0.5 };
 
     auto body = io->body();
     for (int i = 0; i < 4; ++i) {
@@ -320,8 +312,7 @@ void MobileRobotFlipperController::unconfigure()
 
 void MobileRobotFlipperController::updateFlipperTargetPositions()
 {
-    // ゲインをフリッパーごとに調整できるように変更
-    // static const double FLIPPER_GAIN = 0.5; // この行は削除またはコメントアウト
+    static const double FLIPPER_GAIN = 0.5;
 
     // Rスティックボタンが押されている場合はフリッパーの位置を揃える
     if(joystick->getButtonState(targetMode, Joystick::R_STICK_BUTTON)){
@@ -343,7 +334,7 @@ void MobileRobotFlipperController::updateFlipperTargetPositions()
         }
     } else {
         double pos = joystick->getPosition(targetMode, Joystick::R_STICK_V_AXIS, STICK_THRESH);
-        
+        double dq = FLIPPER_GAIN * pos;
         bool FL = joystick->getPosition(targetMode, Joystick::L_TRIGGER_AXIS, STICK_THRESH) > 0.0;
         bool FR = joystick->getPosition(targetMode, Joystick::R_TRIGGER_AXIS, STICK_THRESH) > 0.0;
         bool BL = joystick->getButtonState(targetMode, Joystick::L_BUTTON);
@@ -351,8 +342,6 @@ void MobileRobotFlipperController::updateFlipperTargetPositions()
         
         if(!FL && !FR && !BL && !BR){
             // 同期モード
-            // 共通のゲインを使用
-            double dq = flipper_gains_[0] * pos;
             for(int i=0; i < 4; ++i){
                 cmd_[i] += dq;
                 cmd_[i] = std::clamp(cmd_[i], flipper_min_limits_[i], flipper_max_limits_[i]);
@@ -361,26 +350,18 @@ void MobileRobotFlipperController::updateFlipperTargetPositions()
             // 個別モード
             // ジョイスティックのボタンとフリッパーの論理的なインデックスを対応させる
             if(FL){
-                // FL_FLIPPERのゲインを使用
-                double dq = flipper_gains_[FL_FLIPPER] * pos;
                 cmd_[FL_FLIPPER] += dq;
                 cmd_[FL_FLIPPER] = std::clamp(cmd_[FL_FLIPPER], flipper_min_limits_[FL_FLIPPER], flipper_max_limits_[FL_FLIPPER]);
             }
             if(FR){
-                // FR_FLIPPERのゲインを使用
-                double dq = flipper_gains_[FR_FLIPPER] * pos;
                 cmd_[FR_FLIPPER] += dq;
                 cmd_[FR_FLIPPER] = std::clamp(cmd_[FR_FLIPPER], flipper_min_limits_[FR_FLIPPER], flipper_max_limits_[FR_FLIPPER]);
             }
             if(BL){
-                // BL_FLIPPERのゲインを使用
-                double dq = flipper_gains_[BL_FLIPPER] * pos;
                 cmd_[BL_FLIPPER] += dq;
                 cmd_[BL_FLIPPER] = std::clamp(cmd_[BL_FLIPPER], flipper_min_limits_[BL_FLIPPER], flipper_max_limits_[BL_FLIPPER]);
             }
             if(BR){
-                // BR_FLIPPERのゲインを使用
-                double dq = flipper_gains_[BR_FLIPPER] * pos;
                 cmd_[BR_FLIPPER] += dq;
                 cmd_[BR_FLIPPER] = std::clamp(cmd_[BR_FLIPPER], flipper_min_limits_[BR_FLIPPER], flipper_max_limits_[BR_FLIPPER]);
             }

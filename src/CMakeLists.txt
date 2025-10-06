@@ -57,3 +57,15 @@ choreonoid_add_simple_controller(
     
 ament_target_dependencies(
     AgxTankRos2Controller rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    CratlasAnglePubController CratlasAnglePubController.cpp)
+    
+ament_target_dependencies(
+    CratlasAnglePubController rclcpp sensor_msgs)
+
+choreonoid_add_simple_controller(
+    CratlasPanTiltController CratlasPanTiltController.cpp)
+
+ament_target_dependencies(
+    CratlasPanTiltController rclcpp geometry_msgs)
