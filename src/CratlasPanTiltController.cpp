@@ -34,12 +34,19 @@ private:
     
     // PS5コントローラ関連の追加
     std::unique_ptr<cnoid::Joystick> joystick;
-    const double initial_pan_q = 0.0;    // □ボタン: Pan初期目標角 (0 rad)
-    const double initial_tilt_q = 0.0;   // □ボタン: Tilt初期目標角 (0 rad)
     
-    // ❌ボタンで向かわせる目標角 (ここでパラメータ調節してください)
-    const double cross_pan_q = 0.0;      // ❌ボタン: Pan目標角 (例: 0.5 rad)
-    const double cross_tilt_q = 1.0;     // ❌ボタン: Tilt目標角 (例: 0.0 rad)
+    // 十字ボタンで向かわせる目標角 (ここでパラメータ調節してください)
+    const double up_pan_q = 0.0;         // 十字ボタン上: Pan目標角
+    const double up_tilt_q = 0.25;       // 十字ボタン上: Tilt目標角 (例: 上を向く)
+
+    const double down_pan_q = -3.14;       // 十字ボタン下: Pan目標角
+    const double down_tilt_q = 0.6;      // 十字ボタン下: Tilt目標角 (例: 下を向く)
+
+    const double left_pan_q = 1.57;       // 十字ボタン左: Pan目標角 (例: 左を向く)
+    const double left_tilt_q = 0.45;      // 十字ボタン左: Tilt目標角
+
+    const double right_pan_q = -1.57;     // 十字ボタン右: Pan目標角 (例: 右を向く)
+    const double right_tilt_q = 0.45;     // 十字ボタン右: Tilt目標角
 };
 
 CNOID_IMPLEMENT_SIMPLE_CONTROLLER_FACTORY(CratlasPanTiltController)
@@ -89,42 +96,44 @@ bool CratlasPanTiltController::initialize(cnoid::SimpleControllerIO* io)
 
 bool CratlasPanTiltController::control()
 {
-    double dq_target[2];
     bool button_pressed = false;
 
     // PS5ボタン処理
     if(joystick->isReady()){
         joystick->readCurrentState(); // ジョイスティックの状態を更新
 
-    // 修正後: getButtonState(ID) を使用
-    if (joystick->getButtonState(cnoid::Joystick::X_BUTTON)) { // □ボタン (Square)
-        target_q[0] = initial_pan_q;
-        target_q[1] = initial_tilt_q;
-        button_pressed = true;
-    }
-    else if (joystick->getButtonState(cnoid::Joystick::A_BUTTON)) { // ❌ボタン (Cross)
-        target_q[0] = cross_pan_q;
-        target_q[1] = cross_tilt_q;
-        button_pressed = true;
-    }
+        // 十字ボタンの入力を取得 (古いバージョンのChoreonoid向け)
+        double hat_x = joystick->getPosition(4); // 通常はインデックス5が十字ボタンの左右
+        double hat_y = joystick->getPosition(5); // 通常はインデックス6が十字ボタンの上下
+
+        if (hat_x > 0.5) { // 十字ボタン右
+            target_q[0] = right_pan_q;
+            target_q[1] = right_tilt_q;
+            button_pressed = true;
+        } else if (hat_x < -0.5) { // 十字ボタン左
+            target_q[0] = left_pan_q;
+            target_q[1] = left_tilt_q;
+            button_pressed = true;
+        } else if (hat_y > 0.5) { // 十字ボタン下
+            target_q[0] = down_pan_q;
+            target_q[1] = down_tilt_q;
+            button_pressed = true;
+        } else if (hat_y < -0.5) { // 十字ボタン上
+            target_q[0] = up_pan_q;
+            target_q[1] = up_tilt_q;
+            button_pressed = true;
+        }
     }
     
-    if(button_pressed){
-        // ボタンが押されている場合は、Twist入力を無視し、積分も行わない
-        dq_target[0] = 0.0; 
-        dq_target[1] = 0.0;
-    } else {
+    if(!button_pressed){
         // どちらのボタンも押されていない場合、ROSからのTwistコマンドを使用
         std::lock_guard<std::mutex> lock(commandMutex);
-        dq_target[0] = command.angular.x; // Pan ← angler.x (rad/s)
-        dq_target[1] = command.angular.y; // Tilt ← angler.y (rad/s)
+        target_q[0] += command.angular.x * dt; // Pan ← angler.x (rad/s)
+        target_q[1] += command.angular.y * dt; // Tilt ← angler.y (rad/s)
     }
 
-    // 速度を積分して角度に変換 (ボタンが押されていない場合のみ)
+    // 可動域制限（-360°～+360°）
     for(int i = 0; i < 2; ++i){
-        target_q[i] += dq_target[i] * dt;
-
-        // 可動域制限（-360°～+360°）
         const double limit = 2.0 * M_PI;
         if(target_q[i] >  limit) target_q[i] -= 2.0 * M_PI;
         if(target_q[i] < -limit) target_q[i] += 2.0 * M_PI;
